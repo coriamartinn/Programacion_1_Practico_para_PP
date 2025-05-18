@@ -56,7 +56,7 @@ def validar_legajo_alumno(legajos: list, legajo: int) -> int:
         int: Retorna indice = None (VALOR POR DEFECTO) si el legajo es inexistente, Retorna indice = i -> posicion del legajo que existe.
     """
 
-    indice = None
+    indice = -1
     for i in range(len(legajos)):
         if legajos[i] == legajo:
             indice = i
