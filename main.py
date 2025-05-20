@@ -1,18 +1,22 @@
 ## Imports ##
 from paquetes.funciones_generales import *
 from paquetes.validates import validate_number
+from paquetes.visualizacion import *
+from paquetes.calculos import *
+from paquetes.funciones_propias import busqueda_alumno
 
 
 # Funcion principal
 def main() -> None:
     """
-    Esta funcion se encarga de la funcionalidad principal de la aplicación.
+    Esta funcion se encarga inicializar variables, listas o matrices, realizar el menu de opciones con su validación correspondiente 
+    y el llamado a cada funcion para la ejecucion de cada caso del menu. 
     Args:
         NO RECIBE PARAMETROS FORMALES.
     Returns:
-        NO HAY RETORNO EXISTENTE. SOLO EJECUCIÓN.
+        None: NO HAY RETORNO EXISTENTE.
     """
-    # matrices y listas pedidas -> ESTAS LISTAS SE INICIALIZAN PARA PROBAR LA CARGA DE DATOS.
+    # matrices y listas pedidas -> ESTAS LISTAS SE INICIALIZAN PARA PROBAR LA CARGA DE DATOS. (El punto 1 del parcial)
     """
     notas_estudiantes = inicializar_matriz(5, 5, 0)
     nombres_estudiantes = [""] * 5
@@ -202,14 +206,14 @@ def main() -> None:
                     continue
             match opciones:
                 case 1:
-                    carga_de_datos(
+                    """carga_de_datos(
                         nombres_estudiantes,
                         edades_estudiantes,
                         generos_estudiantes,
                         legajos_estudiantes,
                         notas_estudiantes,
-                    )
-                    # datos_cargados = True
+                    )"""
+                    datos_cargados = True
                 case 2:
                     mostrar_datos(
                         nombres_estudiantes,
@@ -231,7 +235,6 @@ def main() -> None:
                         notas_estudiantes,
                         promedio_estudiantes,
                     )
-                    print("Los elementos han sido ordenado existosamente!!!")
                 case 5:
                     mostrar_materias_con_mejor_promedio(notas_estudiantes)
                 case 6:

@@ -98,7 +98,7 @@ def ordenar(
     """
 
     for i in range(0, len(lista_nombres) - 1, 1):
-
+    
         for j in range(i + 1, len(lista_nombres), 1):
 
             if (lista_promedios[i] > lista_promedios[j] and primer_modo == 1) or (
@@ -152,3 +152,4 @@ def ordenar(
                     notas_auxiliar = lista_notas[i]
                     lista_notas[i] = lista_notas[j]
                     lista_notas[j] = notas_auxiliar
+    print("Los elementos han sido ordenado existosamente!!!")
