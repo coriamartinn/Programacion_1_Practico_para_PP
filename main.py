@@ -1,16 +1,16 @@
 ## Imports ##
+from paquetes.calculos import *
 from paquetes.funciones_generales import *
+from paquetes.funciones_propias import opcion_menu
 from paquetes.validates import validate_number
 from paquetes.visualizacion import *
-from paquetes.calculos import *
-from paquetes.funciones_propias import busqueda_alumno
 
 
 # Funcion principal
 def main() -> None:
     """
-    Esta funcion se encarga inicializar variables, listas o matrices, realizar el menu de opciones con su validación correspondiente 
-    y el llamado a cada funcion para la ejecucion de cada caso del menu. 
+    Esta funcion se encarga inicializar variables, listas o matrices, realizar el menu de opciones con su validación correspondiente
+    y el llamado a cada funcion para la ejecucion de cada caso del menu.
     Args:
         NO RECIBE PARAMETROS FORMALES.
     Returns:
@@ -151,7 +151,7 @@ def main() -> None:
         [6, 8, 9, 7, 5],
         [5, 6, 8, 9, 7],
         [7, 9, 6, 5, 8],
-        [8, 7, 5, 6, 9],
+        [8, 7, 5, 6, 10],
     ]
     legajos_estudiantes = [
         100001,
@@ -187,7 +187,7 @@ def main() -> None:
     ]
     promedio_estudiantes = [-1] * len(notas_estudiantes)
     # VARIABLES CON MENSAJES PARA MEJOR OPTIMIZACIÓN
-    menu = "\n1.Cargar datos alumnos\n2.Mostrar datos alumnos\n3.Calcular promedio alumnos\n4.Ordenar los promedios y datos de forma descendente\n5.Mostrar materias con mayor promedio general\n6.Buscar y mostrar todos los datos de un alumno\n7.salir del programa"
+    menu = "\n1.Cargar datos alumnos\n2.Mostrar datos alumnos\n3.Calcular promedio alumnos\n4.Ordenar los promedios y datos de forma descendente\n5.Mostrar materias con mayor promedio general\n6.Buscar y mostrar todos los datos de un alumno\n7.Buscar y mostrar cuantas veces se repite una calificacion en una materia\n8. Salir del programa"
     mensaje_de_despedida = "Decidiste salir del programa!!"
     mensaje_bienvenida = "BIENVENIDO A LA APP DE ALUMNOS!!"
 
@@ -195,16 +195,12 @@ def main() -> None:
     datos_cargados = False
     while True:
         # mensaje de bienvenida y muestra de las opciones disponibles
-        print(f"{menu}")
-        opciones = input("Elija una opción para continuar: ")
-        validacion = validate_number(opciones)
-        if validacion == True:
-            opciones = int(opciones)
-            if opciones >= 1 and opciones <= 7:
-                if datos_cargados == False and opciones != 1 and opciones != 7:
-                    print("\nDebes cargar los datos antes de ingresar a otra opcion!!")
-                    continue
-            match opciones:
+        opcion_elegida = opcion_menu(menu)
+        if opcion_elegida >= 1 and opcion_elegida <= 8:
+            if datos_cargados == False and opcion_elegida != 1 and opcion_elegida != 8:
+                print("\nDebes cargar los datos antes de ingresar a otra opcion!!")
+                continue
+            match opcion_elegida:
                 case 1:
                     """carga_de_datos(
                         nombres_estudiantes,
@@ -227,7 +223,7 @@ def main() -> None:
                 case 3:
                     promedio_estudiantes = calculo_promedios(notas_estudiantes)
                 case 4:
-                    ordenar(
+                    ordenamiento(
                         nombres_estudiantes,
                         edades_estudiantes,
                         generos_estudiantes,
@@ -247,6 +243,8 @@ def main() -> None:
                         promedio_estudiantes,
                     )
                 case 7:
+                    buscar_y_mostrar_notas_repetidas(notas_estudiantes)
+                case 8:
                     print(mensaje_de_despedida)
                     break
         else:

@@ -71,7 +71,7 @@ def cargar_legajos() -> int:
         validacion_legajos = validate_number(legajos)
         if validacion_legajos == True:
             legajos = int(legajos)
-            if legajos >= 1000 and legajos <= 9999:
+            if legajos >= 10000 and legajos <= 99999:
                 break
         print("ERROR, no es un legajo valido!!")
 
@@ -142,7 +142,7 @@ def materias_por_nombre(notas: list) -> list:
         variable_suma = 0
         for i in range(len(notas)):
             variable_suma += notas[i][columna]
-        promedio = f"Materia_{fila+1}"
+        promedio = f"materia_{fila+1}"
         materias_mejor_promedio[fila] = promedio
         fila += 1
         columna += 1

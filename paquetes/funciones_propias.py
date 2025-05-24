@@ -1,4 +1,4 @@
-from paquetes.validates import validar_legajo_alumno
+from paquetes.validates import validar_legajo_alumno, validate_number
 from paquetes.visualizacion import mostrar_dato
 
 
@@ -61,44 +61,18 @@ def to_upper(cadena: str) -> str:
     return palabra_minusculas
 
 
-def busqueda_alumno(
-    legajos_estudiantes: list,
-    nombres_estudiantes: list,
-    edades_estudiantes: list,
-    generos_estudiantes: list,
-    notas_estudiantes: list,
-    promedio_estudiantes: list,
-) -> None:
+def opcion_menu(menu: str) -> int:
     """
-    Esta funcion realiza la busqueda de alumnos por legajo. Pide AL usuario su legajo, si existe muestra los datos de ese.
-    Si no existe -> indica que no existe en el sistema y le pregunta si quiere seguir buscando S/N.
+    Esta funcion va a retornar la opcion validada para ingresar en el case correspondiente del match 
     Args:
-    legajos_estudiantes (list):Recibe la lista de legajos guardada en el sistema.
-    nombres_estudiantes (list):Recibe la lista de nombres guardada en el sistema.
-    edades_estudiantes (list):Recibe la lista de edades guardada en el sistema.
-    generos_estudiantes (list):Recibe la lista de generos guardada en el sistema.
-    notas_estudiantes (list):Recibe la lista de notas guardada en el sistema.
-    promedio_estudiantes (list):Recibe la lista de promedios guardada en el sistema.
+        opcion (str): Recibe la opcion tipo cadena para validar
     Returns:
-        None: No tiene retorno, llama a la funcion mostrar_dato() si el legajo ingresado existe en el sistema.
+        int: Retorna la opcion elegida parseada a int.
     """
-
-    while True:
-        legajo = int(input("Ingrese el numero de Legajo: "))
-        indice = validar_legajo_alumno(legajos_estudiantes, legajo)
-        if indice == -1:
-            print("ERROR, el legajo que buscas no existe en el sistema.")
-        else:
-            mostrar_dato(
-                nombres_estudiantes,
-                edades_estudiantes,
-                generos_estudiantes,
-                legajos_estudiantes,
-                notas_estudiantes,
-                promedio_estudiantes,
-                indice,
-            )
-        continuar = input("Desea continuar?: s/n: ")
-        continuar = to_lower(continuar)
-        if continuar == "n":
-            break
+    print(menu)
+    opcion = input(f"Ingrese una opcion: ")
+    validacion = validate_number(opcion)
+    if validacion == True:
+        opcion = int(opcion)
+    
+    return opcion

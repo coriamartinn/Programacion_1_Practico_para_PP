@@ -74,6 +74,34 @@ def calcular_promedio_estudiantes(
     return lista_promedios
 
 
+def calcular_notas_repetidas(notas_estudiantes: list) -> list:
+    """
+    Esta funcion se encarga de calcular cuantas veces se repite cada nota en las distintas materias y luego lo retorna
+    en una nueva lista.
+    Args:
+        notas_estudiantes (list): recibe por parametro la matriz con las notas de los
+        numero_materias (int): recibe la cantidad de materias existentes.
+    Returns:
+        list: Retorna una lista con nombre de materias y cantidad de veces repetida cada nota del 1 al 10.
+    """
+
+    lista_nueva = [-1] * 10
+    indice = 0
+    nota = 1
+    while nota != 11:
+        contador = 0
+        for i in range(len(notas_estudiantes)):
+            for j in range(len(notas_estudiantes[i])):
+                if notas_estudiantes[i][j] == nota:
+                    contador += 1
+        lista_nueva[indice] = contador
+        indice += 1
+        nota += 1
+
+    return lista_nueva
+
+
+
 def ordenar(
     lista_nombres: list,
     lista_edades: list,
@@ -85,7 +113,8 @@ def ordenar(
     segundo_modo=1,
 ) -> list:
     """
-    Esta funcion recibe 3 listas y el modo de como ordenar las listas(1= ascendente, 2=descendente).
+    Esta funcion recibe las listas existentes y el modo de como ordenar las listas(1= ascendente, 2=descendente).
+    Segun sea el modo se ordenara de forma ascendente o descendente.
         lista_nombres (list): Recibe la lista de nombres por parametro.
         lista_edades (list): Recibe la lista de edades por parametro.
         lista_generos (list): Recibe la lista de generos por parametro.
@@ -98,7 +127,7 @@ def ordenar(
     """
 
     for i in range(0, len(lista_nombres) - 1, 1):
-    
+
         for j in range(i + 1, len(lista_nombres), 1):
 
             if (lista_promedios[i] > lista_promedios[j] and primer_modo == 1) or (
