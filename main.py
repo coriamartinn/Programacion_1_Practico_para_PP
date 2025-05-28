@@ -251,7 +251,7 @@ def main() -> None:
                     print(mensaje_de_despedida)
                     break
         else:
-            print(f"ERROR, Ingrese una opción entre 1 y 7")
+            print(f"ERROR, Ingrese una opción entre 1 y 8")
 
 
 main()  # -> EJECUCIÓN DEL PROGRAMA.
