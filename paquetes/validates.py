@@ -64,7 +64,7 @@ def validar_legajo_alumno(legajos: list, legajo: int) -> int:
     return indice
 
 
-def validar_materia_existente(materias: list, materia: int) -> int:
+def validar_materia_existente(materias: list, materia: str) -> int:
     """
     Esta funcion recibe la lista de legajos de los alumnos, y busca el legajo recibido por parametro.
     -> si existe tal LEGAJO guarda la posicion en la variable indice.

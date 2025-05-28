@@ -101,7 +101,6 @@ def calcular_notas_repetidas(notas_estudiantes: list) -> list:
     return lista_nueva
 
 
-
 def ordenar(
     lista_nombres: list,
     lista_edades: list,

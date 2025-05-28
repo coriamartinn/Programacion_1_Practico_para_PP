@@ -125,8 +125,9 @@ def mostrar_materia_repetida(lista_numeros_repetidos: list, indice: int) -> None
     print(f"se repite: {lista_numeros_repetidos[indice]} la nota {indice+1}")
 
 
-
-def mostrar_materias_y_notas_repetidas(materias: list, lista_numeros_repetidos: list, materia, tamano: int) -> None:
+def mostrar_materias_y_notas_repetidas(
+    materias: list, lista_numeros_repetidos: list, materia, tamano: int
+) -> None:
     """
     Esta funcion Recibe los datos de los usuarios y los muestra 1 por 1 -> ordenados de Nombre, Edades, Genero, Legajo, Notas y promedio.
     Args:

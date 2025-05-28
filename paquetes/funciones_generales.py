@@ -15,7 +15,7 @@ from paquetes.validates import validar_legajo_alumno, validar_materia_existente
 from paquetes.visualizacion import (
     mostrar_dato,
     mostrar_materias,
-    mostrar_materias_y_notas_repetidas
+    mostrar_materias_y_notas_repetidas,
 )
 
 
@@ -160,13 +160,17 @@ def buscar_y_mostrar_notas_repetidas(notas_estudiantes: list) -> None:
     materias = materias_por_nombre(notas_estudiantes)
     print(materias)
     while True:
-            materia = input("Ingrese la materia que quiere encontrar (materia_1, materia_2, materia_3, materia_4, materia_5): ")
-            indice = validar_materia_existente(materias, materia)
-            if indice == -1:
-                print("ERROR, La materia que intentas buscar no existe.")
-            else:
-                mostrar_materias_y_notas_repetidas(materias, lista_notas_repetidas, materia, len(lista_notas_repetidas))
-            continuar = input("Desea continuar?: s/n: ")
-            continuar = to_lower(continuar)
-            if continuar == "n":
-                break
+        materia = input(
+            "Ingrese la materia que quiere encontrar (materia_1, materia_2, materia_3, materia_4, materia_5): "
+        )
+        indice = validar_materia_existente(materias, materia)
+        if indice == -1:
+            print("ERROR, La materia que intentas buscar no existe.")
+        else:
+            mostrar_materias_y_notas_repetidas(
+                materias, lista_notas_repetidas, materia, len(lista_notas_repetidas)
+            )
+        continuar = input("Desea continuar?: s/n: ")
+        continuar = to_lower(continuar)
+        if continuar == "n":
+            break

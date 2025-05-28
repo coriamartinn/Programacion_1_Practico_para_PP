@@ -63,7 +63,7 @@ def to_upper(cadena: str) -> str:
 
 def opcion_menu(menu: str) -> int:
     """
-    Esta funcion va a retornar la opcion validada para ingresar en el case correspondiente del match 
+    Esta funcion va a retornar la opcion validada para ingresar en el case correspondiente del match
     Args:
         opcion (str): Recibe la opcion tipo cadena para validar
     Returns:
@@ -74,5 +74,5 @@ def opcion_menu(menu: str) -> int:
     validacion = validate_number(opcion)
     if validacion == True:
         opcion = int(opcion)
-    
+
     return opcion
