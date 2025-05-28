@@ -151,7 +151,7 @@ def main() -> None:
         [6, 8, 9, 7, 5],
         [5, 6, 8, 9, 7],
         [7, 9, 6, 5, 8],
-        [8, 7, 5, 6, 10],
+        [8, 7, 5, 6, 1],
     ]
     legajos_estudiantes = [
         100001,
@@ -196,6 +196,9 @@ def main() -> None:
     while True:
         # mensaje de bienvenida y muestra de las opciones disponibles
         opcion_elegida = opcion_menu(menu)
+        if opcion_elegida == str(opcion_elegida):
+            print("Error, La opción no puede ser una cadena.")
+            continue
         if opcion_elegida >= 1 and opcion_elegida <= 8:
             if datos_cargados == False and opcion_elegida != 1 and opcion_elegida != 8:
                 print("\nDebes cargar los datos antes de ingresar a otra opcion!!")

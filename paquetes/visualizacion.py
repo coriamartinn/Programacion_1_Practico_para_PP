@@ -122,8 +122,10 @@ def mostrar_materia_repetida(lista_numeros_repetidos: list, indice: int) -> None
     Returns:
         None: No existe retorno -> muestra por pantalla cada dato que se pide anteriormente por parametro formal.
     """
-    print(f"se repite: {lista_numeros_repetidos[indice]} la nota {indice+1}")
-
+    if lista_numeros_repetidos[indice] == 1:
+        print(f"La nota {indice+1} se repite: {lista_numeros_repetidos[indice]} vez")
+    else:
+        print(f"La nota {indice+1} se repite: {lista_numeros_repetidos[indice]} veces")
 
 def mostrar_materias_y_notas_repetidas(
     materias: list, lista_numeros_repetidos: list, materia, tamano: int
